@@ -1,0 +1,41 @@
+<%- include('partials/header') -%>
+
+<main class="container mx-auto flex justify-center pt-4 pb-12 md:pb-24">
+    <section class="w-6/12 my-5 mx-auto prose">
+      <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+      <div class="alert alert-error"><%= el.msg %></div>
+      <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+      messages.info.forEach( el => { %>
+      <div class="alert alert-info"><%= el.msg %></div>
+      <% }) %> <% } %>
+      <img src="https://res.cloudinary.com/dyt5tdxun/image/upload/f_auto,q_auto/v1664151723/InstaBrew_xubjcb.png" alt="instabrew logo" width="75" height="auto" class="m-0 mx-auto">
+      <h2 class="text-center mt-3">Sign in to your account</h2>
+      <form action="/login" method="POST">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="label"
+            >
+            <span class="label-text">Email Address</span></label
+          >
+          <input
+            type="email"
+            class="input input-bordered w-full max-w-xxl"
+            id="exampleInputEmail1"
+            name="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="label">
+            <span class="label-text">Password</span></label>
+          <input
+            type="password"
+            class="input input-bordered w-full max-w-xxl"
+            id="exampleInputPassword1"
+            name="password"
+          />
+        </div>
+        <button type="submit" class="btn btn-block btn-primary">Log in</button>
+      </form>
+    </section>
+</main>
+
+<%- include('partials/footer') -%>
