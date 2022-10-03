@@ -1,0 +1,157 @@
+<%- include('partials/header') -%> <%- include('partials/navbar2') -%>
+
+<div class="container mx-auto px-4 py-8 my-5 prose">
+  <h2>Add an <span class="text-primary">Aeropress coffee recipe</span></h2>
+  <form
+    action="/post/createPost"
+    enctype="multipart/form-data"
+    method="POST"
+    class="form-control mx-auto"
+  >
+    <div class="mb-3">
+      <label for="title" class="label">
+        <span class="label-text">Recipe Title</span>
+      </label>
+      <input
+        type="text"
+        placeholder="Recipe Title"
+        id="title"
+        name="title"
+        class="input input-bordered w-full max-w-xxl"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="flavorNotes" class="label">
+        <span class="label-text">Flavor Notes</span>
+      </label>
+      <input
+        type="text"
+        id="flavorNotes"
+        name="flavorNotes"
+        placeholder="What will the coffee taste like?"
+        class="input input-bordered w-full max-w-xxl"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="suggestedCoffee" class="label">
+        <span class="label-text">Suggested Coffee Beans</span>
+      </label>
+      <textarea
+        class="textarea textarea-bordered h-24 w-full max-w-xxl"
+        placeholder="Suggested coffee beans for recipe"
+        id="suggestedCoffee"
+        name="suggestedCoffee"
+      ></textarea>
+    </div>
+    <div class="mb-3">
+      <label class="label">
+        <span for="brewMethod" class="label-text">Brew Style</span>
+      </label>
+      <select
+        id="brewMethod"
+        name="brewMethod"
+        class="select select-bordered w-full max-w-xs"
+      >
+        <option disabled selected>Pick one</option>
+        <option value="standard">Standard method</option>
+        <option value="inverted">Inverted method</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="label">
+        <span for="coffeeAmount" class="label-text">Coffee Amount (grams)</span>
+      </label>
+      <input
+        type="text"
+        id="coffeeAmount"
+        name="coffeeAmount"
+        placeholder="12"
+        class="input input-bordered w-full max-w-xxl"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="label">
+        <span for="grindSize" class="label-text">Grind Size</span>
+      </label>
+      <select
+        id="grindSize"
+        name="grindSize"
+        class="select select-bordered w-full max-w-xs"
+      >
+        <option disabled selected>Pick one</option>
+        <option value="finest">Finest</option>
+        <option value="finer">Finer</option>
+        <option value="fine">Fine</option>
+        <option value="coarse">Coarse</option>
+        <option value="coarser">Coarser</option>
+        <option value="coarsest">Coarsest</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="label">
+        <span for="waterAmount" class="label-text">Water Amount (grams)</span>
+      </label>
+      <input
+        type="text"
+        id="waterAmount"
+        name="waterAmount"
+        placeholder="220"
+        class="input input-bordered w-full max-w-xxl"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="label">
+        <span for="ratio" class="label-text">Water-to-Coffee Ratio</span>
+      </label>
+      <input
+        type="text"
+        id="ratio"
+        name="ratio"
+        placeholder="12:1"
+        class="input input-bordered w-full max-w-xxl"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="label">
+        <span for="brewTime" class="label-text">Brew Time (min: sec)</span>
+        <span class="label-text-alt"
+          >for example <span class="font-bold">3:30</span> (3 minutes, 30
+          seconds)</span
+        >
+      </label>
+      <input
+        type="text"
+        id="brewTime"
+        name="brewTime"
+        placeholder="3:30"
+        class="input input-bordered w-full max-w-xxl"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="method" class="label">
+        <span class="label-text">Method (instructions)</span>
+      </label>
+      <textarea
+        class="textarea textarea-bordered h-24 w-full max-w-xxl"
+        placeholder="Separate each step with a comma (e.g. Pour 100g water, wait 30 seconds)"
+        id="method"
+        name="method"
+      ></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="image" class="label">
+        <span class="label-text">Image (optional)</span>
+      </label>
+      <input
+        type="file"
+        class="form-control block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-primary-content hover:file:bg-primary-focus"
+        id="image"
+        name="file"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary mt-4" value="Upload">
+      Add Recipe
+    </button>
+  </form>
+</div>
+<%- include('partials/footer') -%>
