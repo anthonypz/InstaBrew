@@ -1,5 +1,8 @@
 <%- include('partials/header') -%>
 
+<!-- navbar -->
+<%- include('partials/navbar') -%>
+
 <main class="container mx-auto flex justify-center pt-4 pb-12 md:pb-24">
   <section class="w-full lg:w-6/12 my-5 px-2 lg:px-0 mx-auto prose">
     <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
@@ -39,7 +42,9 @@
           name="password"
         />
       </div>
-      <button type="submit" class="btn btn-block btn-primary">Log in</button>
+      <button type="submit" class="btn btn-block btn-primary mt-2">
+        Log in
+      </button>
     </form>
   </section>
 </main>
