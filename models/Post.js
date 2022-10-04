@@ -28,7 +28,7 @@ const PostSchema = new mongoose.Schema({
     required: true,
   },
   grindSize: {
-    type: Number,
+    type: String,
     required: false,
   },
   waterAmount: {
