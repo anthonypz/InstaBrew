@@ -9,14 +9,14 @@
     class="form-control mx-auto"
   >
     <div class="mb-3">
-      <label for="title" class="label">
-        <span class="label-text">Recipe Title</span>
+      <label for="name" class="label">
+        <span class="label-text">Recipe Creator</span>
       </label>
       <input
         type="text"
-        placeholder="Recipe Title"
-        id="title"
-        name="title"
+        placeholder="Who created the recipe?"
+        id="name"
+        name="name"
         class="input input-bordered w-full max-w-xxl"
       />
     </div>
@@ -101,18 +101,6 @@
     </div>
     <div class="mb-3">
       <label class="label">
-        <span for="ratio" class="label-text">Water-to-Coffee Ratio</span>
-      </label>
-      <input
-        type="text"
-        id="ratio"
-        name="ratio"
-        placeholder="12:1"
-        class="input input-bordered w-full max-w-xxl"
-      />
-    </div>
-    <div class="mb-3">
-      <label class="label">
         <span for="brewTime" class="label-text">Brew Time (min: sec)</span>
         <span class="label-text-alt"
           >for example <span class="font-bold">3:30</span> (3 minutes, 30
@@ -129,11 +117,11 @@
     </div>
     <div class="mb-3">
       <label for="method" class="label">
-        <span class="label-text">Method (instructions)</span>
+        <span class="label-text">Brew Method (instructions)</span>
       </label>
       <textarea
         class="textarea textarea-bordered h-24 w-full max-w-xxl"
-        placeholder="Separate each step with a comma (e.g. Pour 100g water, wait 30 seconds)"
+        placeholder="Place each step on a new line"
         id="method"
         name="method"
       ></textarea>

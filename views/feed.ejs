@@ -1,0 +1,34 @@
+<%- include('partials/header') -%> <%- include('partials/navbar2') -%>
+<!-- <div class="container">
+    <div class="row justify-content-center mt-5">
+      <ul class="row list-unstyled">
+        <% for(var i=0; i<posts.length; i++) {%>
+          <li class="col-6 justify-content-between mt-5">
+            <a href="/post/<%= posts[i]._id%>">
+              <img class="img-fluid" src="<%= posts[i].image%>">
+            </a>
+          </li>
+        <% } %>
+        </ul>
+    </div>
+  </div>   -->
+<div class="w-full mx-auto text-center prose mt-2">
+  <h2>Explore Recipes</h2>
+</div>
+<div
+  class="w-full grid py-8 md:px-8 gap-6 lg:gap-8 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"
+>
+  <% for(var i=0; i<posts.length; i++) {%>
+  <div class="card w-80 sm:w-96 bg-base-100 shadow-xl mx-auto">
+    <figure><img src="<%= posts[i].image%>" alt="Shoes" /></figure>
+    <div class="card-body">
+      <h2 class="card-title"><%= posts[i].title%></h2>
+      <p><%= posts[i].flavorNotes %></p>
+      <div class="card-actions justify-end">
+        <button class="btn btn-primary">View Recipe</button>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</div>
+<%- include('partials/footer') -%>

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const PostSchema = new mongoose.Schema({
-  title: {
+  name: {
     type: String,
     required: true,
   },
@@ -17,6 +17,9 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  suggestedCoffee: {
+    type: String,
+  },
   brewMethod: {
     type: String,
   },
@@ -30,10 +33,6 @@ const PostSchema = new mongoose.Schema({
   },
   waterAmount: {
     type: Number,
-    required: false,
-  },
-  ratio: {
-    type: String,
     required: false,
   },
   brewTime: {
