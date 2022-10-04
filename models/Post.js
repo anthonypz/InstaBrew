@@ -35,14 +35,6 @@ const PostSchema = new mongoose.Schema({
     type: Number,
     required: false,
   },
-  brewTime: {
-    type: String,
-    required: false,
-  },
-  notes: {
-    type: String,
-    required: false,
-  },
   method: {
     type: [String],
     required: true,
