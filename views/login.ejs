@@ -6,10 +6,10 @@
 <main class="container mx-auto flex justify-center pt-4 pb-12 md:pb-24">
   <section class="w-full lg:w-6/12 my-5 px-2 lg:px-0 mx-auto prose">
     <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-    <div class="alert alert-error"><%= el.msg %></div>
+    <div class="alert alert-error my-1"><%= el.msg %></div>
     <% }) %> <% } %> <% if (locals.messages.info) { %> <% messages.info.forEach(
     el => { %>
-    <div class="alert alert-info"><%= el.msg %></div>
+    <div class="alert alert-info my-1"><%= el.msg %></div>
     <% }) %> <% } %>
     <img
       src="https://res.cloudinary.com/dyt5tdxun/image/upload/f_auto,q_auto/v1664151723/InstaBrew_xubjcb.png"
