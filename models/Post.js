@@ -22,6 +22,7 @@ const PostSchema = new mongoose.Schema({
   },
   brewMethod: {
     type: String,
+    required: true,
   },
   coffeeAmount: {
     type: Number,
