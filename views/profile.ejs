@@ -1,48 +1,28 @@
 <%- include('partials/header') -%>
 <%- include('partials/navbar2') -%>
 
-<div class="container">
-  <div class="row mt-5">
-      <div class="col-6">
-          <div>
-              <p><strong>User Name</strong>: <%= user.userName %></p>
-              <p><strong>Email</strong>: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
-          </div>
-          <div class="mt-5">
-            <h2>Add a post</h2>
-            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
-              <div class="mb-3">
-                  <label for="title" class="form-label">Title</label>
-                  <input type="text" class="form-control" id="title" name="title">
-              </div>
-              <div class="mb-3">
-                <label for="caption" class="form-label">Caption</label>
-                <textarea class="form-control" id="caption" name="caption"></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="imgUpload" class="form-label">Image</label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
-              </div>
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-            </form>
-          </div>
+<div class="w-full mx-auto text-center prose mt-2">
+  <h2 class="w-full px-8 mt-4">My Recipes</h2>
+  <p class="m-0"><strong>User Name</strong>: <%= user.userName %></p>  <p class="m-0"><strong>Email</strong>: <%= user.email %></p>
+</div>
+<div
+  class="w-full grid py-8 md:px-8 gap-6 lg:gap-8 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"
+>
+  <% for(var i=0; i<posts.length; i++) {%>
+  <div class="card card-compact w-80 sm:w-96 bg-base-100 shadow-xl mx-auto">
+    <figure><img src="<%= posts[i].image%>" alt="<%= posts[i].title%>" /></figure>
+    <div class="card-body">
+      <div class="flex items-center justify-between">
+        <h2 class="card-title"><%= posts[i].name%></h2>
+          <span class="px-2 flex items-center"><i class="px-1 far fa-heart"></i><%= posts[i].likes %></span>
       </div>
-      <div class="col-6">
-        <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
-            </a>
-          </li>
-        <% } %>
-        </ul>
-        <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary" href="/feed">Return to Feed</a>
-        </div>  
-      </div>  
+      <p><strong>Brew method:</strong> <%= posts[i].brewMethod %></p>
+      <p><strong>Posted by:</strong> <%= user.userName %></p>
+      <div class="card-actions justify-end">
+        <a role="button" href="/post/<%= posts[i]._id %>" class="btn btn-primary">View Recipe</a>
+      </div>
     </div>
   </div>
+  <% } %>
 </div>
 <%- include('partials/footer') -%>
