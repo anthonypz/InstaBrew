@@ -1,59 +1,69 @@
 <%- include('partials/header') -%>
-<div class="container">
+<%- include('partials/navbar2') -%>
+
+<div class="py-16 px-2 lg:px-8">
+  <div class="prose mb-3">
+    <h2><%= post.name %></h2>
+    <p>Flavor notes: <%= post.flavorNotes || 'not provided' %></>
+    <p>Posted by: <%= user.userName %></p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 grid-rows-1 gap-6">
+    <div class="space-y-2">
+      <img class="max-w-sm lg:max-w-md rounded-lg col-start-1" src="<%= post.image%>" />
+      <form
+      class=""
+      action="/post/likePost/<%= post.id %>?_method=PUT"
+      method="POST"
+      >
+        <button class="btn btn-primary max-w-min fa fa-heart" type="submit"></button>
+      </form>
+      <%if(post.user == user.id){ %>
+      <form
+        action="/post/deletePost/<%= post.id %>?_method=DELETE"
+        method="POST"
+        class=""
+      >
+        <button class="btn btn-primary max-w-min fas fa-trash" type="submit"></button>
+      </form>
+      <%}%>
+      <h3 class=""><%= post.likes %> likes</h3>
+    </div>
+    <div class="prose">
+      <h2>Set up:</h2>
+      <p>Suggested coffee: <%= post.suggestedCoffee || 'not provided' %></p>
+      <p>Brew method: <%= post.brewMethod %></p>
+      <p>Coffee amount: <%= post.coffeeAmount || '?' %> grams</p>
+      <p>Grind size: <%= post.grindSize %></p>
+      <p>Water amount: <%= post.waterAmount || '?' %> grams</p>
+      <h2>Method:</h2>
+      <ul>
+      <% for (let i=0; i < post.method.length; i++) { %>
+        <li><%= post.method[i] %></>
+      <%}%>
+      </ul>
+    </div>
+
+  </div>
+  <!-- Add a comment box -->
+  <div class="mt-5">
+    <h2>Add a comment:</h2>
+    <form action="/comment/<%= post._id %>" method="POST">
+      <div class="mb-3">
+          <label for="comment" class="form-label">Comment:</label>
+          <input type="text" class="form-control" id="comment" name="comment">
+      </div>
+      <button type="submit" class="btn btn-primary" value="comment">Submit</button>
+    </form>
+  </div>
+  <!-- Show comments -->
   <div class="row justify-content-center mt-5">
-    <div class="col-6">
-      <h2><%= post.title %></h2>
-      <img class="img-fluid" src="<%= post.image%>" />
-      <div class="row justify-content-between">
-        <form
-          class="col-1"
-          action="/post/likePost/<%= post.id %>?_method=PUT"
-          method="POST"
-        >
-          <button class="btn btn-primary fa fa-heart" type="submit"></button>
-        </form>
-        <h3 class="col-3">Likes: <%= post.likes %></h3>
-        <%if(post.user == user.id){ %>
-        <form
-          action="/post/deletePost/<%= post.id %>?_method=DELETE"
-          method="POST"
-          class="col-3"
-        >
-          <button class="btn btn-primary fa fa-trash" type="submit"></button>
-        </form>
-        <%}%>
-      </div>
-      <!-- Add a comment box -->
-      <div class="mt-5">
-        <h2>Add a comment</h2>
-        <form action="/comment/<%= post._id %>" method="POST">
-          <div class="mb-3">
-              <label for="comment" class="form-label">Comment:</label>
-              <input type="text" class="form-control" id="comment" name="comment">
-          </div>
-          <button type="submit" class="btn btn-primary" value="comment">Submit</button>
-        </form>
-      </div>
-
-
-      <!-- Show comments -->
-      <div class="row justify-content-center mt-5">
-        <ul class="row list-unstyled">
-          <% for(var i=0; i<comments.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-           <%= comments[i].comment %>
-          </li>
-          <% } %>
-        </ul>
-    </div>
-    </div>
-    <div class="col-3 mt-5">
-      <p><%= post.caption %></p>
-    </div>
-    <div class="col-6 mt-5">
-      <a class="btn btn-primary" href="/profile">Return to Profile</a>
-      <a class="btn btn-primary" href="/feed">Return to Feed</a>
-    </div>
+    <ul class="row list-unstyled">
+      <% for(var i=0; i<comments.length; i++) {%>
+      <li class="col-6 justify-content-between mt-5">
+        <%= comments[i].comment %>
+      </li>
+      <% } %>
+    </ul>
   </div>
 </div>
 
