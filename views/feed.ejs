@@ -14,7 +14,7 @@
           <span class="px-2 flex items-center"><i class="px-1 far fa-heart"></i><%= posts[i].likes %></span>
       </div>
       <p><strong>Brew method:</strong> <%= posts[i].brewMethod %></p>
-      <p><strong>Posted by:</strong> <%= user.userName %></p>
+      <p><strong>Posted by:</strong> <%= userName[i] %></p>
       <div class="card-actions justify-end">
         <a role="button" href="/post/<%= posts[i]._id %>" class="btn btn-primary">View Recipe</a>
       </div>
