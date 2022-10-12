@@ -2,7 +2,7 @@
 
 <!-- navbar -->
 <%- include('partials/navbar') -%>
-<main class="container mx-auto flex justify-center pt-4 pb-12 md:pb-24">
+<main class="container mx-auto flex justify-center pt-8 pb-12 md:pb-24">
   <section class="w-full lg:w-6/12 mt-5 px-2 lg-:px-0 mx-auto prose">
     <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
     <div class="alert alert-error mt-1"><%= el.msg %></div>
