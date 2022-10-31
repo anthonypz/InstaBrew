@@ -16,5 +16,6 @@ router.get('/logout', authController.logout)
 router.get('/signup', authController.getSignup)
 router.post('/signup', authController.postSignup)
 router.get('/gear', homeController.getGear)
+router.get('/videos', homeController.getVideos)
 
 module.exports = router

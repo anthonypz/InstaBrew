@@ -8,4 +8,10 @@ module.exports = {
       userName: req.user?.userName,
     })
   },
+  getVideos: (req, res) => {
+    res.render('videos', {
+      // use es6 optional chaining for the userName
+      userName: req.user?.userName,
+    })
+  },
 }
