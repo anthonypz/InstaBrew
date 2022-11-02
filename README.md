@@ -1,6 +1,6 @@
 # InstaBrew
 
-InstaBrew is a Fullstack Web App that lets you discover and share AeroPress coffee recipes. Users are able to create accounts using their email and password, explore recipes posted by other users, post comments on individual posts, and create their own posts. Please feel free to sign in as a guest using the "Sign in as a guest" button on the login page.
+InstaBrew is a Fullstack Web App that lets you discover and share AeroPress coffee recipes. Users are able to create accounts using their email and password, explore recipes posted by other users, create their own posts, and post comments on individual posts. Please feel free to sign in as a guest using the "Sign in as a guest" button on the login page.
 
 **Link to project:** https://instabrew.fly.dev/
 
