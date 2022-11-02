@@ -4,7 +4,7 @@ InstaBrew is a Fullstack Web App that lets you discover and share AeroPress coff
 
 **Link to project:** https://instabrew.fly.dev/
 
-<img src="https://i.ibb.co/m4BGRNp/instabrew-Demo.png" width=200>
+<img src="https://i.ibb.co/m4BGRNp/instabrew-Demo.png" width=550>
 
 ## How It's Made:
 
