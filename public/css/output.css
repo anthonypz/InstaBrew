@@ -427,7 +427,7 @@ html {
 }
 
 :root {
-  --p: 41 74% 53%;
+  color-scheme: light;
   --pf: 41 74% 42%;
   --sf: 50 94% 46%;
   --af: 240 33% 11%;
@@ -455,6 +455,7 @@ html {
   --border-btn: 1px;
   --tab-border: 1px;
   --tab-radius: 0.5rem;
+  --p: 41 74% 53%;
   --pc: 240 33% 14%;
   --s: 50 94% 58%;
   --sc: 240 33% 14%;
@@ -1330,7 +1331,6 @@ html {
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   border-radius: var(--rounded-box, 1rem);
 }
 
@@ -1644,7 +1644,8 @@ html {
 }
 
 .input-group > *,
-  .input-group > .input {
+  .input-group > .input,
+  .input-group > .select {
   border-radius: 0px;
 }
 
@@ -2005,7 +2006,8 @@ html {
   color: hsl(var(--p) / var(--tw-text-opacity));
 }
 
-.btn-outline.btn-primary:hover {
+.btn-outline.btn-primary:hover,
+      .btn-outline.btn-primary.btn-active {
   --tw-border-opacity: 1;
   border-color: hsl(var(--pf, var(--p)) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
@@ -2070,6 +2072,22 @@ html {
   }
 }
 
+.card :where(figure:first-child) {
+  overflow: hidden;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  border-bottom-left-radius: unset;
+  border-bottom-right-radius: unset;
+}
+
+.card :where(figure:last-child) {
+  overflow: hidden;
+  border-top-left-radius: unset;
+  border-top-right-radius: unset;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
 .card:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
@@ -2094,6 +2112,11 @@ html {
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 600;
+}
+
+.card.image-full :where(figure) {
+  overflow: hidden;
+  border-radius: inherit;
 }
 
 @keyframes checkmark {
@@ -2148,24 +2171,6 @@ html {
 .file-input:focus {
   outline: 2px solid hsla(var(--bc) / 0.2);
   outline-offset: 2px;
-}
-
-.file-input-primary {
-  --tw-border-opacity: 1;
-  border-color: hsl(var(--p) / var(--tw-border-opacity));
-}
-
-.file-input-primary:focus {
-  outline: 2px solid hsl(var(--p));
-}
-
-.file-input-primary::file-selector-button {
-  --tw-border-opacity: 1;
-  border-color: hsl(var(--p) / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--p) / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: hsl(var(--pc) / var(--tw-text-opacity));
 }
 
 .file-input-disabled,
@@ -2838,16 +2843,16 @@ html {
   margin-top: 1rem;
 }
 
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
 .mt-3 {
   margin-top: 0.75rem;
 }
 
 .mb-3 {
   margin-bottom: 0.75rem;
-}
-
-.mt-2 {
-  margin-top: 0.5rem;
 }
 
 .mr-6 {
@@ -3104,6 +3109,11 @@ html {
   font-weight: 700;
 }
 
+.text-primary-focus {
+  --tw-text-opacity: 1;
+  color: hsl(var(--pf, var(--p)) / var(--tw-text-opacity));
+}
+
 .text-primary {
   --tw-text-opacity: 1;
   color: hsl(var(--p) / var(--tw-text-opacity));
@@ -3122,11 +3132,6 @@ html {
 .text-accent-content {
   --tw-text-opacity: 1;
   color: hsl(var(--ac) / var(--tw-text-opacity));
-}
-
-.text-primary-focus {
-  --tw-text-opacity: 1;
-  color: hsl(var(--pf, var(--p)) / var(--tw-text-opacity));
 }
 
 .shadow-xl {
