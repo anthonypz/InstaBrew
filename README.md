@@ -18,9 +18,7 @@ After processing the user's request in the controller, data is then sent off to 
 
 ## Optimizations
 
-One of the steps that I took that made a huge difference in the loading speed of the web app is optimizing the image assets using Cloudinary. This allowed me to deliver next-gen image formats like WebP and AVIF, keeping the size of most pages below 100 Kilobytes. Another step that made a big difference was switching hosting providers. Using fly.io allowed my app to load instantly instead of previously waiting a few seconds.
-
-In the next update, I would like to transform and optimize each user's image before storing them using Cloudinary's API.
+One of the steps that I took that made a huge difference in my app's loading speed is optimizing the image assets using Cloudinary. This allowed me to deliver next-gen image formats like WebP and AVIF while keeping the size of nearly all pages below 100 Kilobytes. Image uploads from users are transformed before being stored on Cloudinary using a custom preset so that no single image holds back the loading speed of the feed page. Another step that made a big difference was switching hosting providers. Using fly.io allowed my app to load and respond instantaneously.
 
 ## Lessons Learned:
 
