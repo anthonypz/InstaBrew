@@ -51,8 +51,18 @@ module.exports = {
   },
   createPost: async (req, res) => {
     try {
-      // Upload image to cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path)
+      let result
+      if (req.file?.path) {
+        // Upload image to cloudinary
+        result = await cloudinary.uploader.upload(req.file.path, instabrew)
+      } else {
+        // If there is no image attached to the post, attach the following image instead
+        result = {
+          secure_url:
+            'https://res.cloudinary.com/dyt5tdxun/image/upload/v1667628597/Brewing-Basics_wt4cz7.webp',
+          public_id: 'Brewing-Basics_wt4cz7',
+        }
+      }
 
       await Post.create({
         name: req.body.name,
